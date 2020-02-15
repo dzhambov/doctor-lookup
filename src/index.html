@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/js" src="main.js"></script>
   <title>Doctor</title>
 </head>
   <body>
@@ -10,12 +10,27 @@
       <h1>Doctor Locator</h1>
     </div>
     <div class="container">
-      <form id="locator">
+      <form id="userSympt">
         <label for="symptoms">What are your symptoms?</label>
         <br>
         <input type="text" id="symptoms">
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
+      <br>
+      <form id="locator">
+        <label for="doctor">Enter Doctor's Name</label>
+        <br>
+        <input type="text" id="docInfo">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      <div class="result">
+        <ul id="showName">
+
+        </ul>
+        <ul id="showAddress">
+
+        </ul>     
+      </div>
     </div>
   </body>
 </html>
