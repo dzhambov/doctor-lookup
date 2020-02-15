@@ -1,14 +1,18 @@
 import $ from 'jquery';
 import { DoctorInfo } from './../src/doctor-service.js'
-import { DoctorSymptom } from './../src/doctor-service.js'
+import { UserSymptom } from './../src/doctor-service.js'
 
 $(document).ready(function() {
-  $("#locator").submit(function(event) {
+  $("#userSympt").submit(function(event) {
     event.preventDefault();
-    const symptoms = $("#userSympt").val();
-    $("#userSympt").val("");
+    const sympt = $("#symptoms").val();
+    $("#symptoms").val("");
 
-  
+    (async () => {
+      let userSymptom = new UserSymptom();
+      const response1 = await userSymptom.getUserBySymptom(symptoms);
+      this.getElementsByClassName(response1);
+    })();
 
     $("#showName").prepend(`<li> ${name} ${city} </li>`)
     
