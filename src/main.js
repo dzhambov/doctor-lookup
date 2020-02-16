@@ -51,7 +51,7 @@ $(document).ready(function() {
       if (response2 === false) {
         $("#result").text("There was an error locatin a doctor. Please try again!");
       } else if (response2.data.length === 0) {
-        $("#result").append("There was no doctor matching your criteria found. Please try different search!");
+        $("#noResult").text("There was no doctor matching your criteria found. Please try different search!");
       } else if (response2.data.length > 0) {
         // for (let i = 0; i <= response2.data.length; i++) {
         response2.data.forEach(function(doc) {
