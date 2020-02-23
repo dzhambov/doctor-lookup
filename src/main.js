@@ -10,7 +10,6 @@ $(document).ready(function() {
     event.preventDefault();
     const name = $("#docInfo").val();
     $("#docInfo").val("");
-    console.log(name);
     
     (async () => {
       let doctor = new Doctor();
@@ -20,12 +19,10 @@ $(document).ready(function() {
     
     function getElements(response) {
       let docArr = [];
-      console.log(response);
       if (response === false) {
         $("#noResult").text("There was an error locatin a doctor. Please try again!");
       } else if (response.data.length === 0) {
         $("#noResult").text("There was no doctor matching your criteria found. Please try different search!");
-        
       } else if (response.data.length > 0) {
         response.data.forEach(function(doc) {
           docArr.push(response);
