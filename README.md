@@ -17,8 +17,20 @@ This webpage allows users to input their symptom and find doctors in their area.
   * _In a web browswer navigate to https://github.com/dzhambov/doctor-lookup_
   * _Click the green "Clone or download" button and selct "Download ZIP"_
   * _Open the file and double click the "index.html" file to open the page!_
-3. _GitHub Pages_
-  * _You may also view the page by [clicking here](https://dzhambov.github.io/doctor-lookup/)._
+  * _Once cloned/downloaded, to run and make changes, in the terminal simply run **$ npm install** to download necessary dependencies_
+  * _Run **$ npm run build** to create your dist folder with a bundle.js file_
+
+3. _Onbtaining API KEY_
+
+  * _Obtain API key from https://developer.betterdoctor.com/_
+  * _Create .env file in the root directory of doctor-lookup_
+  * _Add the API key to .env file (```API_KEY = <your API key here>```)_
+  * _**IT IS IMPORTANT** that you add .env file to .gitignore file_ 
+  * _The API key will now be referenced within the doctor-service.js file using the following syntax: ```${process.env.API_KEY}```_
+  * _Lastly, run **$ npm run start** to run the application_
+
+4. _GitHub Pages_
+  * _You may also view the page by [clicking here](https://github.com/dzhambov/doctor-lookup)._
 
 ## Specifications
 
