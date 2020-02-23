@@ -3,32 +3,32 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { Doctor } from './../src/doctor-service.js';
-import { UserSymptom } from './../src/doctor-service.js';
+// import { UserSymptom } from './../src/doctor-service.js';
 
-$(document).ready(function() {
-  $("#userSympt").submit(function(event) {
-    event.preventDefault();
-    const sympt = $("#symptoms").val();
-    $("#symptoms").val("");
-    console.log(sympt);
+// $(document).ready(function() {
+//   $("#userSympt").submit(function(event) {
+//     event.preventDefault();
+//     const sympt = $("#symptoms").val();
+//     $("#symptoms").val("");
+//     console.log(sympt);
     
-    (async () => {
-      let userSymptom = new UserSymptom();
-      const response1 = await userSymptom.getUserBySymptom(sympt);
-      getElements(response1);
-    })();
+//     (async () => {
+//       let userSymptom = new UserSymptom();
+//       const response1 = await doctor.getUserBySymptom(sympt);
+//       getElements(response1);
+//     })();
     
-    function getElements(response1) {
-      if (response1 === false) {
-        $("#result").prepend("There was an error locatin a doctor. Please try again!")
+//     function getElements(response1) {
+//       if (response1 === false) {
+//         $("#result").prepend("There was an error locatin a doctor. Please try again!");
         
-      }
-    }
+//       }
+//     }
 
-    $("#showName").prepend(`<li> ${name}  </li>`);
+//     $("#showName").prepend(`<li> ${name}  </li>`);
     
-  });
-});
+//   });
+// });
 
 
 $(document).ready(function() {
@@ -42,7 +42,6 @@ $(document).ready(function() {
       let doctor = new Doctor();
       const response2 = await doctor.getDoctorByName(name);
       getElements(response2);
-      // $(".result").empty();
     })();
     
     function getElements(response2) {
@@ -55,10 +54,10 @@ $(document).ready(function() {
       } else if (response2.data.length > 0) {
         response2.data.forEach(function(doc) {
           docArr.push(response2);
-          $("#showLastName").append(`<li> First Name:${doc.profile.first_name} <br> Last Name:${doc.profile.last_name} </li>`);
-        })
+          $("#doctorInformation").prepend(`<li> Doctor's Name: ${doc.profile.title} ${doc.profile.first_name} ${doc.profile.last_name} <br> Accepts New Patients: ${doc.practices[0].accepts_new_patients} <br> Address: ${doc.practices[0].visit_address.street} <br> ${doc.practices[0].visit_address.city}, ${doc.practices[0].visit_address.state}, ${doc.practices[0].visit_address.zip} <br> Phone: ${doc.practices[0].phones[0].number}</li>`);
+        });
         
       }
     } 
-    });
   });
+});
